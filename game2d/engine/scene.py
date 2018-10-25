@@ -90,7 +90,10 @@ class g2dScene:
         """
         if font_filename:
             self._FontFileName = os.path.join(self._ImgDir, font_filename)
-        self._Font = pygame.font.Font(self._FontFileName, font_size)
+        try:
+            self._Font = pygame.font.Font(self._FontFileName, font_size)
+        except:
+            log.fatal(u'Ошибка установки шрифта <%s>' % self._FontFileName)
 
     def GetFont(self):
         return self._Font

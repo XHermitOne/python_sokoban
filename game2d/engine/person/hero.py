@@ -35,28 +35,33 @@ class sokobanHero(person.g2dPersonage):
         # Step index
         self._StateStep = 1
         # Horizontal speed rate
-        self._HorizSpeed = 4
+        self._HorizSpeed = map2d.MAP_CELL_WIDTH / 4
         # Vertical speed rate
-        self._VertSpeed = 4
+        self._VertSpeed = map2d.MAP_CELL_WIDTH / 4
 
         # Load images
         self.images = list()
         img_dir = self._Scene.GetImgDir()
+
+        # To Right move sprites
+        self.images += img.load_images(os.path.join(img_dir, 'default', 'Player', 'player_12.png'),
+                                       os.path.join(img_dir, 'default', 'Player', 'player_11.png'),
+                                       os.path.join(img_dir, 'default', 'Player', 'player_13.png'))
+
+        # To Left move sprites
         self.images += img.load_images(os.path.join(img_dir, 'default', 'Player', 'player_15.png'),
-                                       os.path.join(img_dir, 'default', 'Player', 'player_16.png'),
-                                       os.path.join(img_dir, 'default', 'Player', 'player_17.png'))
+                                       os.path.join(img_dir, 'default', 'Player', 'player_14.png'),
+                                       os.path.join(img_dir, 'default', 'Player', 'player_16.png'))
 
-        self.images += [img.flip_horiz_img(self.images[0]),
-                        img.flip_horiz_img(self.images[1]),
-                        img.flip_horiz_img(self.images[2])]
+        # To Down move sprites
+        self.images += img.load_images(os.path.join(img_dir, 'default', 'Player', 'player_03.png'),
+                                       os.path.join(img_dir, 'default', 'Player', 'player_02.png'),
+                                       os.path.join(img_dir, 'default', 'Player', 'player_04.png'))
 
-        self.images += [img.rotate_img(self.images[3], img.ANGLE_270),
-                        img.rotate_img(self.images[4], img.ANGLE_270),
-                        img.rotate_img(self.images[5], img.ANGLE_270)]
-
-        self.images += [img.rotate_img(self.images[3], img.ANGLE_90),
-                        img.rotate_img(self.images[4], img.ANGLE_90),
-                        img.rotate_img(self.images[5], img.ANGLE_90)]
+        # To Up move sprites
+        self.images += img.load_images(os.path.join(img_dir, 'default', 'Player', 'player_06.png'),
+                                       os.path.join(img_dir, 'default', 'Player', 'player_05.png'),
+                                       os.path.join(img_dir, 'default', 'Player', 'player_07.png'))
 
         # Init image
         self.image = self.images[self._img_idx]
