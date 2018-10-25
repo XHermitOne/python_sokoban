@@ -25,6 +25,9 @@ import map2d
 
 __version__ = (0, 0, 2, 1)
 
+BLACK_COLOR = (0, 0, 0)
+DEFAULT_SCREEN_COLOR = BLACK_COLOR
+
 SCENE_WIDTH = map2d.MAP_CELL_WIDTH * map2d.MAP_SCENE_WIDTH
 SCENE_HEIGHT = map2d.MAP_CELL_HEIGHT * map2d.MAP_SCENE_HEIGHT
 
@@ -158,8 +161,14 @@ class g2dScene:
         @return: True/False.
         """
         try:
-            if background_filename:
+            if background_filename and os.path.exists(background_filename):
                 self._BackgroundImg = pygame.image.load(os.path.join(self._ImgDir, background_filename)).convert()
+            else:
+                if self._Screen:
+                    self._Screen.fill(DEFAULT_SCREEN_COLOR)
+                else:
+                    log.warning(u'Не определен экран сцены')
+                return True
 
             self._Background = pygame.Surface(self._ScreenRect.size)
             # X
@@ -169,7 +178,7 @@ class g2dScene:
                     self._Background.blit(self._BackgroundImg, (x, y))
             return True
         except:
-            log.fatal(u'ERROR: Draw scene background.')
+            log.fatal(u'Ошибка отрисовки фона сцены')
             return False
 
     def DrawDecor(self):
@@ -262,8 +271,13 @@ class g2dScene:
         self._Decors = list()
 
     def Clear(self):
+        """
+        Полная очистка сцены.
+        @return:
+        """
         self.ClearSprites()
         self.ClearDecors()
+        self._Background.
 
     def GetHero(self):
         """
