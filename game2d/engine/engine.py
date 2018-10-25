@@ -105,10 +105,11 @@ def sokobanEngine():
             game_map.LoadCur()
             
         # pygame.display.set_caption('SOKOBAN Level: %d'%(game_map.GetLevel()))
-        # game_scene.DrawTextXY('SOKOBAN Level: %d'%(game_map.GetLevel()),5,5)
+        game_scene.DrawTextXY(u'SOKOBAN Level: %d' % (game_map.GetLevel()), 5, 5)
 
         if is_win and (not is_game_over):
             game_scene.BacksidePage()
+
     # Save state
     cfg.CfgSaveParam('game2d.cfg', 'SOKOBAN', 'cur_level', game_map.GetLevel()-1)
 

@@ -15,7 +15,7 @@ from game2d.tools import log
 # --- Constants ---
 # Scene size (map cells)
 MAP_SCENE_WIDTH = 20
-MAP_SCENE_HEIGHT = 20
+MAP_SCENE_HEIGHT = 16
 
 # Map cell size (points)
 MAP_CELL_WIDTH = 64
