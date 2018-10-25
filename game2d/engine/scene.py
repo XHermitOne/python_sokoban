@@ -11,15 +11,15 @@ import os.path
 import pygame
 from pygame.locals import *
 
-import game2d.tools.image as img
-import game2d.tools.log as log
+from game2d.tools import image as img
+from game2d.tools import log
 
-import decoration.wall as wall
-import thing.box as box
-import decoration.place as place
-import decoration.ground as ground
+from decoration import wall
+from thing import box
+from decoration import place
+from decoration import ground
 
-import person.hero as hero
+from person import hero
 
 import map2d
 

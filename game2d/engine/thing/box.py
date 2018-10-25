@@ -8,8 +8,9 @@ Game box class.
 # --- Imports ---
 import os
 import os.path
-import game2d.tools.image as img
-import game2d.engine.map2d as map2d
+
+from game2d.tools import image as img
+from game2d.engine import map2d
 
 import thing
 

@@ -5,7 +5,7 @@ Abstract game personage class.
 """
 
 # --- Imports ---
-import game2d.engine.figure as figure
+from game2d.engine import figure
 
 
 # --- Classes ---

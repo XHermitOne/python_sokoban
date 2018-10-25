@@ -7,7 +7,8 @@
 # === Подключение библиотек ===
 import os
 import os.path
-import game2d.engine.decor as decor
+
+from game2d.engine import decor
 
 # === Константы и спецификации ===
 __version__ = (0, 0, 2, 1)

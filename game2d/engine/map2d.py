@@ -8,8 +8,9 @@ Game map classes.
 # --- Imports ---
 import os
 import os.path
-import game2d.tools.tools as tools
-import game2d.tools.log as log
+
+from game2d.tools import tools
+from game2d.tools import log
 
 # --- Constants ---
 # Scene size (map cells)

@@ -8,12 +8,16 @@ Game hero class.
 import os
 import os.path
 import pygame.time
-import game2d.tools.image as img
-import game2d.engine.map2d as map2d
+
+from game2d.tools import image as img
+from game2d.engine import map2d
+from game2d.tools import log
 
 import person
 
 __version__ = (0, 0, 2, 1)
+
+HERO_MOVE_DELAY = 40
 
 
 # --- Classes ---
@@ -70,7 +74,8 @@ class sokobanHero(person.g2dPersonage):
     def RunToLeft(self):
         """
         Move hero to Left.
-        """        
+        """
+        log.debug(u'Движение влево')
         # New moving phase
         self._MovingPhase = 3
         self.MoveToPos(self._Pos[0]-1, self._Pos[1])
@@ -79,6 +84,7 @@ class sokobanHero(person.g2dPersonage):
         """
         Move hero to right.
         """        
+        log.debug(u'Движение вправо')
         # New moving phase
         self._MovingPhase = 0
         self.MoveToPos(self._Pos[0]+1, self._Pos[1])
@@ -87,6 +93,7 @@ class sokobanHero(person.g2dPersonage):
         """
         Move hero to up.
         """        
+        log.debug(u'Движение вверх')
         self._MovingPhase = 6
         self.MoveToPos(self._Pos[0], self._Pos[1]-1)
 
@@ -94,6 +101,7 @@ class sokobanHero(person.g2dPersonage):
         """
         Move hero to down.
         """        
+        log.debug(u'Движение вниз')
         self._MovingPhase = 9
         self.MoveToPos(self._Pos[0], self._Pos[1]+1)
 
@@ -159,6 +167,7 @@ class sokobanHero(person.g2dPersonage):
 
                 if box:
                     box.MoveToPos(to_pos[0], to_pos[1])
+                    # box.MoveToPos(pos_x, pos_y)
                 if self._Map.GetCellByPos(pos_x, pos_y) != map2d.MAP_BOX:
                     self._moveToPos(pos_x, pos_y)
                     self.SetPos(pos_x, pos_y)
@@ -173,6 +182,7 @@ class sokobanHero(person.g2dPersonage):
         """
         dx, dy = ((pos_x-self._Pos[0])*self._HorizSpeed,
                   (pos_y-self._Pos[1])*self._VertSpeed)
+        log.debug(u'Приращение в точках [%d : %d]' % (dx, dy))
         for phase in range(4):
             point = (self._Point[0]+dx, self._Point[1]+dy)
             self._State += self._StateStep
@@ -184,4 +194,4 @@ class sokobanHero(person.g2dPersonage):
             self.SetPoint(point[0], point[1])
 
             self._Scene.Draw()
-            pygame.time.delay(40)
+            pygame.time.delay(HERO_MOVE_DELAY)

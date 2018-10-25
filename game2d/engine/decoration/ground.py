@@ -6,15 +6,20 @@
 """
 
 # === Подключение библиотек ===
+import os
+import os.path
 import random
 
 # Импортирование основных игровых модулей
 import pygame
 
-import game2d.engine.decor as decor
-import game2d.engine.map2d as map2d
+from game2d.engine import decor
+from game2d.engine import map2d
 
 __version__ = (0, 0, 2, 1)
+
+
+GROUND_IMG = None
 
 
 # --- Описания классов ---
@@ -28,8 +33,16 @@ class sokobanGround(decor.g2dDecor):
         """
         decor.g2dDecor.__init__(self, scene)
 
+        # Загрузить образы
+        global GROUND_IMG
+        if GROUND_IMG is None:
+            GROUND_IMG = self.LoadImage(os.path.join(self._Scene.GetImgDir(), 'default',
+                                                     'Ground', 'ground_06.png'))
+        else:
+            self.SetImage(GROUND_IMG)
+
         # Определение образа
-        self.InitImage()
+        # self.InitImage()
 
     def InitImage(self):
         """

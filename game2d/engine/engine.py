@@ -6,6 +6,7 @@ Game engine module.
 """
 
 # --- Imports ---
+import time
 import pygame
 from pygame.locals import *
 
@@ -15,6 +16,8 @@ import map2d
 import game2d.tools.cfg as cfg
 
 __version__ = (0, 0, 2, 1)
+
+ENGINE_DELAY = 0.05
 
 
 # --- Functions ---
@@ -58,7 +61,7 @@ def sokobanEngine():
         # game_scene.DrawBackground('phone.png')
         game_scene.DrawDecor()
         
-        info_txt = 'SOKOBAN Level: %d' % game_map.GetLevel()
+        info_txt = u'SOKOBAN Level: %d' % game_map.GetLevel()
         pygame.display.set_caption(info_txt)
         game_scene.DrawTextXY(info_txt, 5, 5, (224, 192, 128))
     
@@ -82,17 +85,15 @@ def sokobanEngine():
                     break_level = True
                     break
 
-            keystate = pygame.key.get_pressed()
-    
-            if keystate[K_RIGHT]:
-                game_hero.RunToRight()
-            elif keystate[K_LEFT]:
-                game_hero.RunToLeft()
-            elif keystate[K_UP]:
-                game_hero.RunToUp()
-            elif keystate[K_DOWN]:
-                game_hero.RunToDown()
-    
+                if event.type == KEYDOWN and event.key == K_RIGHT:
+                    game_hero.RunToRight()
+                elif event.type == KEYDOWN and event.key == K_LEFT:
+                    game_hero.RunToLeft()
+                elif event.type == KEYDOWN and event.key == K_UP:
+                    game_hero.RunToUp()
+                elif event.type == KEYDOWN and event.key == K_DOWN:
+                    game_hero.RunToDown()
+
             # End level
             if sokobanWinLevel(game_scene):
                 run = False

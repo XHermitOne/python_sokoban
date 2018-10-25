@@ -5,7 +5,7 @@ Abstract thing class.
 """
 
 # --- Imports ---
-import game2d.engine.figure as figure
+from game2d.engine import figure
 
 __version__ = (0, 0, 2, 1)
 
