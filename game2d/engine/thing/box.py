@@ -30,6 +30,11 @@ class sokobanBox(thing.g2dThing):
         """
         thing.g2dThing.__init__(self, scene)
 
+        # Horizontal speed rate
+        self._HorizSpeed = map2d.MAP_CELL_WIDTH / 4
+        # Vertical speed rate
+        self._VertSpeed = map2d.MAP_CELL_WIDTH / 4
+
         # Load images
         img_dir = self._Scene.GetImgDir()
         self.images = img.load_images(os.path.join(img_dir, 'default', 'Crates', 'crate_02.png'),
@@ -69,7 +74,8 @@ class sokobanBox(thing.g2dThing):
         Step loop.
         @param pos_x, pos_y: Position.
         """
-        dx, dy = ((pos_x-self._Pos[0])*4, (pos_y-self._Pos[1])*4)
+        dx, dy = ((pos_x-self._Pos[0])*self._HorizSpeed,
+                  (pos_y-self._Pos[1])*self._VertSpeed)
         for phase in range(4):
             point = (self._Point[0]+dx, self._Point[1]+dy)
 

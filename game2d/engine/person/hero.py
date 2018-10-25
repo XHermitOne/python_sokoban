@@ -171,7 +171,8 @@ class sokobanHero(person.g2dPersonage):
         Move steps.
         @param pos_x, pos_y: Position.
         """
-        dx, dy = ((pos_x-self._Pos[0])*4, (pos_y-self._Pos[1])*4)
+        dx, dy = ((pos_x-self._Pos[0])*self._HorizSpeed,
+                  (pos_y-self._Pos[1])*self._VertSpeed)
         for phase in range(4):
             point = (self._Point[0]+dx, self._Point[1]+dy)
             self._State += self._StateStep
