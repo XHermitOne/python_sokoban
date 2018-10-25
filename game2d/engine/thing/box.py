@@ -38,8 +38,8 @@ class sokobanBox(thing.g2dThing):
 
         # Load images
         img_dir = self._Scene.GetImgDir()
-        self.images = img.load_images(os.path.join(img_dir, 'default', 'Crates', 'crate_02.png'),
-                                      os.path.join(img_dir, 'default', 'Crates', 'crate_01.png'))
+        self.images = img.load_images(os.path.join(img_dir, 'default', 'Crates', 'crate_12.png'),
+                                      os.path.join(img_dir, 'default', 'Crates', 'crate_02.png'))
 
     def update(self):
         """

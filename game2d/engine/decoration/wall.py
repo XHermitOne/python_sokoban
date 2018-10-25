@@ -31,6 +31,6 @@ class sokobanWall(decor.g2dDecor):
         global WALL_IMG
         if WALL_IMG is None:
             WALL_IMG = self.LoadImage(os.path.join(self._Scene.GetImgDir(),
-                                                   'default', 'Blocks', 'block_05.png'))
+                                                   'default', 'Blocks', 'block_01.png'))
         else:
             self.SetImage(WALL_IMG)

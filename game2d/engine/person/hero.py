@@ -48,21 +48,21 @@ class sokobanHero(person.g2dPersonage):
         img_dir = self._Scene.GetImgDir()
 
         # To Right move sprites
-        self.images += img.load_images(os.path.join(img_dir, 'default', 'Player', 'player_12.png'),
-                                       os.path.join(img_dir, 'default', 'Player', 'player_11.png'),
-                                       os.path.join(img_dir, 'default', 'Player', 'player_13.png'))
+        self.images += img.load_images(os.path.join(img_dir, 'default', 'Player', 'player_18.png'),
+                                       os.path.join(img_dir, 'default', 'Player', 'player_17.png'),
+                                       os.path.join(img_dir, 'default', 'Player', 'player_19.png'))
 
         # To Left move sprites
-        self.images += img.load_images(os.path.join(img_dir, 'default', 'Player', 'player_15.png'),
-                                       os.path.join(img_dir, 'default', 'Player', 'player_14.png'),
-                                       os.path.join(img_dir, 'default', 'Player', 'player_16.png'))
-
-        # To Down move sprites
-        self.images += img.load_images(os.path.join(img_dir, 'default', 'Player', 'player_03.png'),
-                                       os.path.join(img_dir, 'default', 'Player', 'player_02.png'),
-                                       os.path.join(img_dir, 'default', 'Player', 'player_04.png'))
+        self.images += img.load_images(os.path.join(img_dir, 'default', 'Player', 'player_21.png'),
+                                       os.path.join(img_dir, 'default', 'Player', 'player_20.png'),
+                                       os.path.join(img_dir, 'default', 'Player', 'player_22.png'))
 
         # To Up move sprites
+        self.images += img.load_images(os.path.join(img_dir, 'default', 'Player', 'player_09.png'),
+                                       os.path.join(img_dir, 'default', 'Player', 'player_08.png'),
+                                       os.path.join(img_dir, 'default', 'Player', 'player_10.png'))
+
+        # To Down move sprites
         self.images += img.load_images(os.path.join(img_dir, 'default', 'Player', 'player_06.png'),
                                        os.path.join(img_dir, 'default', 'Player', 'player_05.png'),
                                        os.path.join(img_dir, 'default', 'Player', 'player_07.png'))
