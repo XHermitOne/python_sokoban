@@ -270,6 +270,15 @@ class g2dScene:
         """
         self._Decors = list()
 
+    def ClearScreen(self):
+        """
+        Очистка экрана.
+        """
+        if self._Screen:
+            self._Screen.fill(DEFAULT_SCREEN_COLOR)
+        else:
+            log.warning(u'Не определен экран для сцены')
+
     def Clear(self):
         """
         Полная очистка сцены.
@@ -277,7 +286,7 @@ class g2dScene:
         """
         self.ClearSprites()
         self.ClearDecors()
-        self._Background.
+        self.ClearScreen()
 
     def GetHero(self):
         """
