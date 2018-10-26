@@ -58,7 +58,7 @@ def sokobanEngine():
         # Center
         game_map.Center()
         # Show scene
-        # game_scene.DrawBackground('phone.png')
+        # game_scene.DrawBackground()
         game_scene.DrawDecor()
         
         info_txt = u'SOKOBAN Level: %d' % game_map.GetLevel()

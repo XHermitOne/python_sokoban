@@ -25,7 +25,7 @@ import map2d
 
 __version__ = (0, 0, 2, 1)
 
-BLACK_COLOR = (0, 0, 0)
+BLACK_COLOR = Color(0, 0, 0, 0)
 DEFAULT_SCREEN_COLOR = BLACK_COLOR
 
 SCENE_WIDTH = map2d.MAP_CELL_WIDTH * map2d.MAP_SCENE_WIDTH
@@ -149,14 +149,17 @@ class g2dScene:
 
     def RefreshScreen(self):
         """
-        Refresh scene screen.
+        Обновление экрана сцены.
         """
-        self._Screen.blit(self._Background, (0, 0))
+        if self._Background:
+            self._Screen.blit(self._Background, (0, 0))
+        else:
+            log.warning(u'Не определен фон')
         pygame.display.flip()
 
     def DrawBackground(self, background_filename=None):
         """
-        Draw scene background.
+        Отрисовка фона сцены.
         @param background_filename: Background image file name.
         @return: True/False.
         """
@@ -164,13 +167,13 @@ class g2dScene:
             if background_filename and os.path.exists(background_filename):
                 self._BackgroundImg = pygame.image.load(os.path.join(self._ImgDir, background_filename)).convert()
             else:
-                if self._Screen:
-                    self._Screen.fill(DEFAULT_SCREEN_COLOR)
+                if self._Background:
+                    self._Background.fill(DEFAULT_SCREEN_COLOR)
                 else:
-                    log.warning(u'Не определен экран сцены')
+                    log.warning(u'Не определен фон сцены')
                 return True
 
-            self._Background = pygame.Surface(self._ScreenRect.size)
+            self._Background = pygame.Surface(self._ScreenRect.size, flags=SRCALPHA)
             # X
             for x in range(0, self._ScreenRect.width, self._BackgroundImg.get_width()):
                 # Y
@@ -241,7 +244,7 @@ class g2dScene:
 
     def Draw(self):
         """
-        Draw scene.
+        Отрисовка сцены.
         """
         # draw the scene
         # clear/erase the last drawn sprites
@@ -286,7 +289,7 @@ class g2dScene:
         """
         self.ClearSprites()
         self.ClearDecors()
-        self.ClearScreen()
+        self.FillScreen()
 
     def GetHero(self):
         """
