@@ -73,7 +73,7 @@ class sokobanBox(thing.g2dThing):
     def _moveToPos(self, pos_x, pos_y):
         """
         Step loop.
-        @param pos_x, pos_y: Position.
+        :param pos_x, pos_y: Position.
         """
         dx, dy = ((pos_x-self._Pos[0])*self._HorizSpeed,
                   (pos_y-self._Pos[1])*self._VertSpeed)

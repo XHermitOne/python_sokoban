@@ -19,8 +19,8 @@ class mySprite(pygame.sprite.Sprite):
     def __init__(self,ImageFiles_=None,SoundFiles_=None):
         '''
         Constructor.
-        @param ImageFiles_: Image file name list.
-        @param SoundFiles_: Sound file name list.
+        :param ImageFiles_: Image file name list.
+        :param SoundFiles_: Sound file name list.
         '''
         pygame.sprite.Sprite.__init__(self)
 

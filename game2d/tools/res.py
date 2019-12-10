@@ -16,7 +16,7 @@ import file
 def LoadResource(FileName_):
     '''
     Load resource file.
-    @param FileName_: Resource file name.
+    :param FileName_: Resource file name.
     '''
     #Pickle?
     struct=LoadResourcePickle(FileName_)
@@ -33,7 +33,7 @@ def LoadResource(FileName_):
 def LoadResourcePickle(FileName_):
     '''
     Load pickle resource file.
-    @param FileName_: Resource file name.
+    :param FileName_: Resource file name.
     '''
     if file.IsFile(FileName_):
         try:
@@ -51,7 +51,7 @@ def LoadResourcePickle(FileName_):
 def LoadResourceText(FileName_):
     '''
     Load text resource file.
-    @param FileName_: Resource file name.
+    :param FileName_: Resource file name.
     '''
     if file.IsFile(FileName_):
         try:
@@ -69,9 +69,9 @@ def LoadResourceText(FileName_):
 def SaveResourcePickle(FileName_,Resource_):
     '''
     Save pickle resource file.
-    @param FileName_: Resource file name.
+    :param FileName_: Resource file name.
     @Resource_: Resource data.
-    @return: True/False.
+    :return: True/False.
     '''
     try:
         dir_name=file.DirName(FileName_)
@@ -89,9 +89,9 @@ def SaveResourcePickle(FileName_,Resource_):
 def SaveResourceText(FileName_,Resource_):
     '''
     Save text resource file.
-    @param FileName_: Resource file name.
+    :param FileName_: Resource file name.
     @Resource_: Resource data.
-    @return: True/False.
+    :return: True/False.
     '''
     try:
         dir_name=file.DirName(FileName_)

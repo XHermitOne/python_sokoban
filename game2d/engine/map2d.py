@@ -71,15 +71,15 @@ class g2dMap:
     def Load(self, map_filename):
         """
         Load map.
-        @param map_filename: Map resource file.
+        :param map_filename: Map resource file.
         """
         pass
 
     def SetScene(self, scene=None, scene_x=0, scene_y=0):
         """
         Set scene object.
-        @param scene: Scene object.
-        @param scene_x, scene_y: Left-top position scene (map cells).
+        :param scene: Scene object.
+        :param scene_x, scene_y: Left-top position scene (map cells).
         """
         self._Scene = scene
         self._ScenePos = (scene_x, scene_y)
@@ -88,7 +88,7 @@ class g2dMap:
     def MoveSceneToPos(self, pos_x,pos_y):
         """
         Move scene object on map.
-        @param pos_x, pos_y: Position coordinates. 
+        :param pos_x, pos_y: Position coordinates. 
         """
         self._ScenePos = (pos_x, pos_y)
         self._ScreenScenePos = (pos_x*MAP_CELL_WIDTH, pos_y*MAP_CELL_HEIGHT)
@@ -96,7 +96,7 @@ class g2dMap:
     def MoveScene(self, direction):
         """
         Move scene object on map.
-        @param direction: Move direction. 
+        :param direction: Move direction. 
         """
         try:
             if not direction[0] and not direction[0]:
@@ -133,7 +133,7 @@ class g2dMap:
     def SetMapImage(self, map_image=None):
         """
         Set map data.
-        @param map_image: Map data.
+        :param map_image: Map data.
         """
         if map_image is None:
             map_image = list()
@@ -159,15 +159,15 @@ class g2dMap:
     def GetCellByPos(self, pos_x, pos_y):
         """
         Get cell symbol by coords.
-        @param pos_x, pos_y: Position.
+        :param pos_x, pos_y: Position.
         """
         return self._MapImg[pos_y][pos_x]
 
     def SetCellByPos(self, cell, pos_x, pos_y):
         """
         Set cell symbol on map.
-        @param cell: Cell symbol.
-        @param pos_x, pos_y: Position.
+        :param cell: Cell symbol.
+        :param pos_x, pos_y: Position.
         """
         if self._MapImg and cell:
             self._MapImg[pos_y] = self._MapImg[pos_y][:pos_x]+cell+self._MapImg[pos_y][(pos_x+1):]
@@ -175,14 +175,14 @@ class g2dMap:
     def GetCellByPoint(self, point_x, point_y):
         """
         Get cell symbol by screen point.
-        @param point_x, point_y: Point coords.
+        :param point_x, point_y: Point coords.
         """
         return self._MapImg[(point_y-self._MapOffset[1])/MAP_CELL_HEIGHT][(point_x-self._MapOffset[0])/MAP_CELL_WIDTH]
 
     def GetObjByPos(self, pos_x, pos_y):
         """
         Get game object by position.
-        @param pos_x, pos_y: Position.
+        :param pos_x, pos_y: Position.
         """
         obj = None
         pos = (pos_x, pos_y)
@@ -202,22 +202,22 @@ class g2dMap:
     def LoadNext(self):
         """
         Load next level map.
-        @return: True/False.
+        :return: True/False.
         """
         return self.LoadLevel(self._Level+1)
 
     def LoadCur(self):
         """
         Reload cur level.
-        @return: True/False.
+        :return: True/False.
         """
         return self.LoadLevel(self._Level)
     
     def LoadLevel(self, level=1):
         """
         Load level map by number.
-        @param level: Level number.
-        @return: True/False.
+        :param level: Level number.
+        :return: True/False.
         """
         self._Level = level
         next_map_file = self._genMapFileName(self._Level)
@@ -243,8 +243,8 @@ class sokobanMap(g2dMap):
     def Load(self, map_filename):
         """
         Load map.
-        @param map_filename: Map resource file name.
-        @return: True/False.
+        :param map_filename: Map resource file name.
+        :return: True/False.
         """
         if map_filename is None:
             return False

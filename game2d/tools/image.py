@@ -16,9 +16,9 @@ __version__ = (0, 0, 6, 2)
 def load_image(img_filename, do_convert=True):
     """
     Загрузить изображение из файла.
-    @param img_filename: Полное имя файла изображения.
-    @param do_convert: Производить автоматически конвертацию?
-    @return: Объект изображения.
+    :param img_filename: Полное имя файла изображения.
+    :param do_convert: Производить автоматически конвертацию?
+    :return: Объект изображения.
     """
     try:
         if (isinstance(img_filename, str) or isinstance(img_filename, unicode)) and os.path.exists(img_filename):
@@ -34,10 +34,10 @@ def load_image(img_filename, do_convert=True):
 def save_image(img, img_filename, rewrite=True):
     """
     Сохранить изображение в файл.
-    @param img: Объект изображения.
-    @param img_filename: Полное имя файла изображения.
-    @param rewrite: Перезаписать, если уже существует?
-    @return: True/False.
+    :param img: Объект изображения.
+    :param img_filename: Полное имя файла изображения.
+    :param rewrite: Перезаписать, если уже существует?
+    :return: True/False.
     """
     try:
         if type(img_filename) in (unicode, str) and os.path.exists(img_filename) and rewrite:
@@ -56,7 +56,7 @@ def save_image(img, img_filename, rewrite=True):
 def load_images(*img_filenames):
     """
     Зугрузка нескольких изображений.
-    @param img_filenames: Список файлов изображений.
+    :param img_filenames: Список файлов изображений.
     """
     images = []
     for img_file in img_filenames:
@@ -87,8 +87,8 @@ ANGLE_270 = 270
 def rotate_img(img, angle=0):
     """
     Поворот изображения на угол.
-    @param img: Объект изображения.
-    @param angle: Угол в градусах.
+    :param img: Объект изображения.
+    :param angle: Угол в градусах.
     """
     return pygame.transform.rotate(img, angle)
 
@@ -96,11 +96,11 @@ def rotate_img(img, angle=0):
 def calc_center_xy(win_width, win_height, img_width, img_height):
     """
     Расчитать координаты изображения для размещения по центру окна.
-    @param win_width: Ширина главного окна.
-    @param win_height: Высота главного окна.
-    @param img_width: Размер изображения. Ширина.
-    @param img_height: Размер изображения. Высота.
-    @return: (X, Y) - Координаты изображения для отображения по центру окна.
+    :param win_width: Ширина главного окна.
+    :param win_height: Высота главного окна.
+    :param img_width: Размер изображения. Ширина.
+    :param img_height: Размер изображения. Высота.
+    :return: (X, Y) - Координаты изображения для отображения по центру окна.
     """
     x_offset = (win_width - img_width) / 2
     y_offset = (win_height - img_height) / 2
@@ -110,9 +110,9 @@ def calc_center_xy(win_width, win_height, img_width, img_height):
 def image_scale(img, scale=2):
     """
     Масштабировать изображение.
-    @param img: Объект изображения.
-    @param scale: Коэффициент масштабирования.
-    @return: Новый смасштабированный объект изображения.
+    :param img: Объект изображения.
+    :param scale: Коэффициент масштабирования.
+    :return: Новый смасштабированный объект изображения.
     """
     img_width, img_height = img.get_size()
     # create a 2x bigger image than self.image
@@ -122,13 +122,13 @@ def image_scale(img, scale=2):
 def load_image_fragment(img_filename, x, y, width, height, do_convert=True):
     """
     Загрузка фрагмента/кадра из файла образа.
-    @param img_filename: Полное имя файла изображения.
-    @param x: Координата X левого-верхнего угла фрагмента.
-    @param y: Координата Y левого-верхнего угла фрагмента.
-    @param width: Ширина фрагмента.
-    @param height: Высота фрагмента.
-    @param do_convert: Производить автоматически конвертацию?
-    @return: Объект изображения фрагмента. None в случае ошибки.
+    :param img_filename: Полное имя файла изображения.
+    :param x: Координата X левого-верхнего угла фрагмента.
+    :param y: Координата Y левого-верхнего угла фрагмента.
+    :param width: Ширина фрагмента.
+    :param height: Высота фрагмента.
+    :param do_convert: Производить автоматически конвертацию?
+    :return: Объект изображения фрагмента. None в случае ошибки.
     """
     img = load_image(img_filename, do_convert)
     if img:
@@ -147,14 +147,14 @@ def load_image_fragment(img_filename, x, y, width, height, do_convert=True):
 def load_image_fragment_scale(img_filename, x, y, width, height, scale=1, do_convert=True):
     """
     Загрузка фрагмента/кадра из файла образа с масштабированием.
-    @param img_filename: Полное имя файла изображения.
-    @param x: Координата X левого-верхнего угла фрагмента.
-    @param y: Координата Y левого-верхнего угла фрагмента.
-    @param width: Ширина фрагмента.
-    @param height: Высота фрагмента.
-    @param scale: Коэффициент масштабирования.
-    @param do_convert: Производить автоматически конвертацию?
-    @return: Объект изображения фрагмента. None в случае ошибки.
+    :param img_filename: Полное имя файла изображения.
+    :param x: Координата X левого-верхнего угла фрагмента.
+    :param y: Координата Y левого-верхнего угла фрагмента.
+    :param width: Ширина фрагмента.
+    :param height: Высота фрагмента.
+    :param scale: Коэффициент масштабирования.
+    :param do_convert: Производить автоматически конвертацию?
+    :return: Объект изображения фрагмента. None в случае ошибки.
     """
     img = load_image_fragment(img_filename, x, y, width, height, do_convert=do_convert)
     if img and scale > 1:
@@ -165,11 +165,11 @@ def load_image_fragment_scale(img_filename, x, y, width, height, scale=1, do_con
 def resize_image(img, width, height, do_convert=True):
     """
     Изменение размеров изображения
-    @param img: Объект изображения.
-    @param width: Новая ширина изображения.
-    @param height: Новая высота изображения.
-    @param do_convert: Производить автоматически конвертацию?
-    @return: Объект переразмеренного образа или None - ошибка.
+    :param img: Объект изображения.
+    :param width: Новая ширина изображения.
+    :param height: Новая высота изображения.
+    :param do_convert: Производить автоматически конвертацию?
+    :return: Объект переразмеренного образа или None - ошибка.
     """
     if img:
         # ВНИМАНИЕ! У нового образа фон д.б. прозрачный иначе происходит закрашивание фона
@@ -188,11 +188,11 @@ def resize_image(img, width, height, do_convert=True):
 def offset_image(img, offset_x, offset_y, do_convert=True):
     """
     Сделать смещение изображения в другую точку.
-    @param img: Объект изображения.
-    @param offset_x: Смещение координаты X левого-верхнего угла, относительно текущего.
-    @param offset_y: Смещение координаты Y левого-верхнего угла, относительно текущего.
-    @param do_convert: Производить автоматически конвертацию?
-    @return: Объект изображения фрагмента. None в случае ошибки.
+    :param img: Объект изображения.
+    :param offset_x: Смещение координаты X левого-верхнего угла, относительно текущего.
+    :param offset_y: Смещение координаты Y левого-верхнего угла, относительно текущего.
+    :param do_convert: Производить автоматически конвертацию?
+    :return: Объект изображения фрагмента. None в случае ошибки.
     """
     if img:
         img_width, img_height = img.get_size()

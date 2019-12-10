@@ -11,10 +11,10 @@ import file
 def CfgLoadParam(CFGFileName_,Section_,ParamName_):
     '''
     Read param from configuration file.
-    @param CFGFileName_: Config file name.
-    @param Section_: Section name.
-    @param ParamName_: Parameter name.
-    @return: Parameter value or None if error.
+    :param CFGFileName_: Config file name.
+    :param Section_: Section name.
+    :param ParamName_: Parameter name.
+    :return: Parameter value or None if error.
     '''
     try:
         param=None
@@ -31,11 +31,11 @@ def CfgLoadParam(CFGFileName_,Section_,ParamName_):
 def CfgSaveParam(CFGFileName_,Section_,ParamName_,ParamValue_):
     '''
     Write parameter into configuration file.
-    @param CFGFileName_: Config file name.
-    @param Section_: Section name.
-    @param ParamName_: Parameter name.
-    @param ParamValue_: Parameter value.
-    @return: True/False.
+    :param CFGFileName_: Config file name.
+    :param Section_: Section name.
+    :param ParamName_: Parameter name.
+    :param ParamValue_: Parameter value.
+    :return: True/False.
     '''
     try:
         cfg_file=None
@@ -74,10 +74,10 @@ def CfgSaveParam(CFGFileName_,Section_,ParamName_,ParamValue_):
 def CfgDelParam(CFGFileName_,Section_,ParamName_):
     '''
     Delete parameter from configuration file.
-    @param CFGFileName_: Config file name.
-    @param Section_: Section name.
-    @param ParamName_: Parameter name.
-    @return: True/False.
+    :param CFGFileName_: Config file name.
+    :param Section_: Section name.
+    :param ParamName_: Parameter name.
+    :return: True/False.
     '''
     try:
         cfg_file=None
@@ -110,9 +110,9 @@ def CfgDelParam(CFGFileName_,Section_,ParamName_):
 def CfgParamCount(CFGFileName_,Section_):
     '''
     Get parameter count in section.
-    @param CFGFileName_: Config file name.
-    @param Section_: Section name.
-    @return: Return parameter count in section or -1 if error.
+    :param CFGFileName_: Config file name.
+    :param Section_: Section name.
+    :return: Return parameter count in section or -1 if error.
     '''
     try:
         cfg_file=None
@@ -139,9 +139,9 @@ def CfgParamCount(CFGFileName_,Section_):
 def CfgParamNames(CFGFileName_,Section_):
     '''
     Get names of parameters in section.
-    @param CFGFileName_: Config file name.
-    @param Section_: Section name.
-    @return: Return list of names in section or None if error.
+    :param CFGFileName_: Config file name.
+    :param Section_: Section name.
+    :return: Return list of names in section or None if error.
     '''
     try:
         cfg_file=None

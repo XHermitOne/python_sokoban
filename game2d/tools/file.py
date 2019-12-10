@@ -37,7 +37,7 @@ import log
 def RelativePath(Path_):
     '''
     Get relative path.
-    @param Path_: Path.
+    :param Path_: Path.
     '''
     if not Path_:
         return Path_
@@ -49,7 +49,7 @@ def RelativePath(Path_):
 def AbsolutePath(Path_):
     '''
     Get absolute path.
-    @param Path_: Path.
+    :param Path_: Path.
     '''
     if not Path_:
         return Path_
@@ -72,7 +72,7 @@ def CopyFile(SrcFileName_, DstFileName_):
 def CreateBAKFile(FileName_):
     '''
     Create baackup *.bak file.
-    @param FileName_: File name.
+    :param FileName_: File name.
     '''
     bak_file_name=FileName_+'.bak'
     CopyFile(FileName_, bak_file_name)

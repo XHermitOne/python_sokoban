@@ -65,13 +65,13 @@ class g2dPersonage(figure.g2dFigure):
     def MoveToPoint(self, point_x, point_y):
         """
         Move personage to point (point_x, point_y).
-        @param point_x, point_y: New point.
+        :param point_x, point_y: New point.
         """
         pass
 
     def MoveToPos(self, pos_x, pos_y):
         """
         Move personage to position (pos_x, pos_y).
-        @param pos_x, pos_y: New position.
+        :param pos_x, pos_y: New position.
         """
         pass

@@ -19,7 +19,7 @@ class g2dFigure(pygame.sprite.Sprite):
     def __init__(self, scene=None):
         """
         Constructor.
-        @param scene: Scene object.
+        :param scene: Scene object.
         """
         pygame.sprite.Sprite.__init__(self, self.containers)
         

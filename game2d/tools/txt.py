@@ -13,8 +13,8 @@ PADDING='    '
 def StructToTxt(Struct_, Level_=0):
     '''
     Convert dict-list struct to text.
-    @param Struct_ : Dict-list struct.
-    @param Level_: Cur level.
+    :param Struct_ : Dict-list struct.
+    :param Level_: Cur level.
     '''
     try:
         txt=''

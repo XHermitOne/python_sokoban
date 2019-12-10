@@ -18,7 +18,7 @@ class g2dThing(figure.g2dFigure):
     def __init__(self, scene):
         """
         Constructor.
-        @param scene: Scene object.
+        :param scene: Scene object.
         """
         figure.g2dFigure.__init__(self, scene)
 

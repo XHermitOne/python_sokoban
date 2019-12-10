@@ -146,7 +146,7 @@ class sokobanHero(person.g2dPersonage):
     def MoveToPoint(self, point_x, point_y):
         """
         Move personage to point (point_x, point_y).
-        @param point_x, point_y: New point.
+        :param point_x, point_y: New point.
         """
         cell = self._Map.GetCellByPoint(point_x, point_y)
         if cell != map2d.MAP_WALL:
@@ -156,7 +156,7 @@ class sokobanHero(person.g2dPersonage):
     def MoveToPos(self, pos_x, pos_y):
         """
         Move personage to position (pos_x, pos_y).
-        @param pos_x, pos_y: New position.
+        :param pos_x, pos_y: New position.
         """
         cell = self._Map.GetCellByPos(pos_x, pos_y)
         if cell != map2d.MAP_WALL:
@@ -178,7 +178,7 @@ class sokobanHero(person.g2dPersonage):
     def _moveToPos(self, pos_x, pos_y):
         """
         Move steps.
-        @param pos_x, pos_y: Position.
+        :param pos_x, pos_y: Position.
         """
         dx, dy = ((pos_x-self._Pos[0])*self._HorizSpeed,
                   (pos_y-self._Pos[1])*self._VertSpeed)

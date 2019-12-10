@@ -88,8 +88,8 @@ class g2dScene:
     def SetFont(self, font_filename=None, font_size=20):
         """
         Set font.
-        @param font_filename: Font file name.
-        @param font_size: Font size.
+        :param font_filename: Font file name.
+        :param font_size: Font size.
         """
         if font_filename:
             self._FontFileName = os.path.join(self._ImgDir, font_filename)
@@ -104,9 +104,9 @@ class g2dScene:
     def DrawTextXY(self, text, x, y, color=(255, 255, 255)):
         """
         Draw text on scene background.
-        @param text: Text.
-        @param x, y: Draw coords.
-        @param color: RGB color.
+        :param text: Text.
+        :param x, y: Draw coords.
+        :param color: RGB color.
         """
         if self._Font and self._Background:
             txt = self._Font.render(text, 0, color)
@@ -115,7 +115,7 @@ class g2dScene:
     def SetAllOffset(self, offset=(0, 0)):
         """
         Set all sprites offset.
-        @param offset: Offset (point).
+        :param offset: Offset (point).
         """
         # Sprites
         if self._All:
@@ -138,8 +138,8 @@ class g2dScene:
     def DrawImage(self, image, x, y):
         """
         Draw image on scene background.
-        @param image: Image.
-        @param x, y: Draw point.
+        :param image: Image.
+        :param x, y: Draw point.
         """
         try:
             if self._Background:
@@ -160,8 +160,8 @@ class g2dScene:
     def DrawBackground(self, background_filename=None):
         """
         Отрисовка фона сцены.
-        @param background_filename: Background image file name.
-        @return: True/False.
+        :param background_filename: Background image file name.
+        :return: True/False.
         """
         try:
             if background_filename and os.path.exists(background_filename):
@@ -209,7 +209,7 @@ class g2dScene:
     def Init(self):
         """
         Scene initialization.
-        @return: True/False.
+        :return: True/False.
         """
         try:
             # pygame init
@@ -285,7 +285,7 @@ class g2dScene:
     def Clear(self):
         """
         Полная очистка сцены.
-        @return:
+        :return:
         """
         self.ClearSprites()
         self.ClearDecors()
@@ -337,7 +337,7 @@ class sokobanScene(g2dScene):
     def CreateObjects(self, map_object):
         """
         Create all game objects.
-        @param map_object: Map object.
+        :param map_object: Map object.
         """
         try:
             map_img = map_object.GetMapImage()

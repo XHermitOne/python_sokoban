@@ -18,7 +18,7 @@ class g2dDecor:
     def __init__(self, scene):
         """
         Constructor.
-        @param scene: Scene object.
+        :param scene: Scene object.
         """
         self._Scene = scene
         self._Img = None        # Decoration image
@@ -40,7 +40,7 @@ class g2dDecor:
     def Draw(self, scene):
         """
         Draw image on scene.
-        @param scene: Scene object.
+        :param scene: Scene object.
         """
         if scene:
             scene.DrawImage(self._Img, self._Point[0], self._Point[1])

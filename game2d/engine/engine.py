@@ -117,8 +117,8 @@ def sokobanEngine():
 def sokobanWinLevel(Scene_):
     """
     Win?
-    @param Scene_: Scene object.
-    @return: True/False.
+    :param Scene_: Scene object.
+    :return: True/False.
     """
     for box in Scene_.GetThings():
         if box.GetGround() != map2d.MAP_PLACE:
