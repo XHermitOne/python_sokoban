@@ -8,14 +8,14 @@ Game engine module.
 # --- Imports ---
 import time
 import pygame
-from pygame.locals import *
+# import pygame.locals
 
-import scene
-import map2d
+from . import scene
+from . import map2d
 
-import game2d.tools.cfg as cfg
+from ..tools import cfg
 
-__version__ = (0, 0, 2, 1)
+__version__ = (0, 0, 3, 1)
 
 ENGINE_DELAY = 0.05
 
@@ -28,7 +28,7 @@ def sokobanEngine():
     # ~~~ Init block ~~~
     # Scene creation
     game_scene = scene.sokobanScene()
-    game_scene.SetImgDir(cfg.CfgLoadParam('game2d.cfg', 'SOKOBAN', 'img_dir'))
+    game_scene.SetImgDir(cfg.loadCfgParam('game2d.cfg', 'SOKOBAN', 'img_dir'))
     # Init
     game_scene.Init()
 
@@ -40,9 +40,9 @@ def sokobanEngine():
 
     # Map create
     game_map = map2d.sokobanMap()
-    game_map.SetMapDir(cfg.CfgLoadParam('game2d.cfg', 'SOKOBAN', 'map_dir'))
+    game_map.SetMapDir(cfg.loadCfgParam('game2d.cfg', 'SOKOBAN', 'map_dir'))
     # Load first level
-    game_map.LoadLevel(int(cfg.CfgLoadParam('game2d.cfg', 'SOKOBAN', 'cur_level'))) 
+    game_map.LoadLevel(int(cfg.loadCfgParam('game2d.cfg', 'SOKOBAN', 'cur_level')))
     game_map.SetScene(game_scene)
     
     # Game over flag
@@ -75,23 +75,23 @@ def sokobanEngine():
             # get input
             for event in pygame.event.get():
                 # Quit
-                if event.type == QUIT or (event.type == KEYDOWN and event.key == K_F10):
+                if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_F10):
                     run = False
                     is_game_over = True
 
                 # Break level
-                if event.type == KEYDOWN and event.key == K_ESCAPE:
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                     run = False
                     break_level = True
                     break
 
-                if event.type == KEYDOWN and event.key == K_RIGHT:
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
                     game_hero.RunToRight()
-                elif event.type == KEYDOWN and event.key == K_LEFT:
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
                     game_hero.RunToLeft()
-                elif event.type == KEYDOWN and event.key == K_UP:
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
                     game_hero.RunToUp()
-                elif event.type == KEYDOWN and event.key == K_DOWN:
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
                     game_hero.RunToDown()
 
             # End level
@@ -111,7 +111,7 @@ def sokobanEngine():
             game_scene.BacksidePage()
 
     # Save state
-    cfg.CfgSaveParam('game2d.cfg', 'SOKOBAN', 'cur_level', game_map.GetLevel()-1)
+    cfg.saveCfgParam('game2d.cfg', 'SOKOBAN', 'cur_level', game_map.GetLevel() - 1)
 
 
 def sokobanWinLevel(Scene_):

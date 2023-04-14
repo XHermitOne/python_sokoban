@@ -1,8 +1,8 @@
 # !/usr/bin/env python
 #  -*- coding: utf-8 -*-
-'''
+"""
 Utils function.
-'''
+"""
 
 #--- Imports ---
 import time, random, md5
@@ -10,12 +10,12 @@ import log
 
 #--- Functions ---
 def ReCodeString(String_,StringCP_,NewCP_):
-    '''
+    """
     Encode string from one codepage to another.
     :param String_: String.
     :param StringCP_: String codepage.
     :param NewCP_: New string codepage.
-    '''
+    """
     if NewCP_.upper()=='UNICODE':
         #unicode
         return unicode(String_,StringCP_)
@@ -24,7 +24,7 @@ def ReCodeString(String_,StringCP_,NewCP_):
     return string.encode(NewCP_)
 
 def SpcDef(Spc_,Struct_):
-    '''
+    """
     Define specification struct of object.
 
     :type Spc_: C{dictionary}
@@ -33,7 +33,7 @@ def SpcDef(Spc_,Struct_):
     :param Struct_: Structure dictionary.
     :rtype: C{dictionary}
     :return: Defined structure dictionary.
-    '''
+    """
 
     try:
         for key in Spc_.keys():
@@ -44,10 +44,10 @@ def SpcDef(Spc_,Struct_):
     return Struct_
 
 def uuid(*args):
-    '''
+    """
     Generates a universally unique ID.
     Any arguments only create more randomness.
-    '''
+    """
     t=long(time.time()*1000)
     r=long(random.random()*100000000000000000L)
 

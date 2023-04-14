@@ -4,19 +4,16 @@
 Модуль классов стены игры.
 """
 
-# === Подключение библиотек ===
 import os
 import os.path
 
-from game2d.engine import decor
+from .. import decor
 
-# === Константы и спецификации ===
-__version__ = (0, 0, 2, 1)
+__version__ = (0, 0, 3, 1)
 
 WALL_IMG = None
 
 
-# === Описания классов ===
 class sokobanWall(decor.g2dDecor):
     """
     Класс стены.

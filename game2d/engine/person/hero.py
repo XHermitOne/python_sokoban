@@ -4,28 +4,25 @@
 Game hero class.
 """
 
-# --- Imports ---
 import os
 import os.path
 import pygame.time
 
-from game2d.tools import image as img
-from game2d.engine import map2d
-from game2d.tools import log
+from ...tools import image as img
+from .. import map2d
+from ...tools import log
 
-import person
+from . import person
 
-__version__ = (0, 0, 2, 1)
+__version__ = (0, 0, 3, 1)
 
 HERO_MOVE_DELAY = 40
 
 
-# --- Classes ---
 class sokobanHero(person.g2dPersonage):
     """
     Sokoban game hero class.
     """
-
     def __init__(self, scene):
         """
         Constructor.

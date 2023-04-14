@@ -4,11 +4,9 @@
 Abstract game personage class.
 """
 
-# --- Imports ---
-from game2d.engine import figure
+from .. import figure
 
 
-# --- Classes ---
 class g2dPersonage(figure.g2dFigure):
     """
     Abstract game personage class.

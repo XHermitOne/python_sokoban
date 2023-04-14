@@ -21,7 +21,7 @@ def load_image(img_filename, do_convert=True):
     :return: Объект изображения.
     """
     try:
-        if (isinstance(img_filename, str) or isinstance(img_filename, unicode)) and os.path.exists(img_filename):
+        if isinstance(img_filename, str) and os.path.exists(img_filename):
             img = pygame.image.load(img_filename)
             return img.convert_alpha() if do_convert else img
         else:
@@ -40,9 +40,9 @@ def save_image(img, img_filename, rewrite=True):
     :return: True/False.
     """
     try:
-        if type(img_filename) in (unicode, str) and os.path.exists(img_filename) and rewrite:
+        if isinstance(img_filename, str) and os.path.exists(img_filename) and rewrite:
             os.remove(img_filename)
-        elif type(img_filename) in (unicode, str) and os.path.exists(img_filename) and not rewrite:
+        elif isinstance(img_filename, str) and os.path.exists(img_filename) and not rewrite:
             print(u'WARNING. File <%s> exists. Rewrite banned' % img_filename)
             return False
 

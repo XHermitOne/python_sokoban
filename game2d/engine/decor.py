@@ -6,9 +6,9 @@ Abstract class of decoration.
 """
 
 # --- Imports ---
-from game2d.tools import image as img
+from ..tools import image as img
 
-__version__ = (0, 0, 2, 1)
+__version__ = (0, 0, 3, 1)
 
 
 class g2dDecor:

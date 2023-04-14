@@ -5,19 +5,17 @@
 Game box class.
 """
 
-# --- Imports ---
 import os
 import os.path
 
-from game2d.tools import image as img
-from game2d.engine import map2d
+from ...tools import image as img
+from .. import map2d
 
-import thing
+from . import thing
 
-__version__ = (0, 0, 2, 1)
+__version__ = (0, 0, 3, 1)
 
 
-# --- Classes ---
 class sokobanBox(thing.g2dThing):
     """
     Sokoban box class.

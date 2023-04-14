@@ -9,23 +9,23 @@ Scene classes.
 import os
 import os.path
 import pygame
-from pygame.locals import *
+# import pygame.locals
 
-from game2d.tools import image as img
-from game2d.tools import log
+from ..tools import image as img
+from ..tools import log
 
-from decoration import wall
-from thing import box
-from decoration import place
-from decoration import ground
+from .decoration import wall
+from .thing import box
+from .decoration import place
+from .decoration import ground
 
-from person import hero
+from .person import hero
 
-import map2d
+from . import map2d
 
-__version__ = (0, 0, 2, 1)
+__version__ = (0, 0, 3, 1)
 
-BLACK_COLOR = Color(0, 0, 0, 0)
+BLACK_COLOR = pygame.Color(0, 0, 0, 0)
 DEFAULT_SCREEN_COLOR = BLACK_COLOR
 
 SCENE_WIDTH = map2d.MAP_CELL_WIDTH * map2d.MAP_SCENE_WIDTH
@@ -46,7 +46,7 @@ class g2dScene:
         # Screen object
         self._Screen = None
         # Screen size
-        self._ScreenRect = Rect(0, 0, SCENE_WIDTH, SCENE_HEIGHT)
+        self._ScreenRect = pygame.Rect(0, 0, SCENE_WIDTH, SCENE_HEIGHT)
         # Screen parameters
         self._WinStyle = 0
         self._BestDepth = None
@@ -173,7 +173,7 @@ class g2dScene:
                     log.warning(u'Не определен фон сцены')
                 return True
 
-            self._Background = pygame.Surface(self._ScreenRect.size, flags=SRCALPHA)
+            self._Background = pygame.Surface(self._ScreenRect.size, flags=pygame.SRCALPHA)
             # X
             for x in range(0, self._ScreenRect.width, self._BackgroundImg.get_width()):
                 # Y
@@ -443,7 +443,7 @@ class sokobanScene(g2dScene):
         txt = 'Press any key...'
         self.SetFont(None, 12)
         w, h = self._Font.size(txt)
-        x, y = img.calc_center_xy(self._ScreenRect.width,self._ScreenRect.height, w, h)
+        x, y = img.calc_center_xy(self._ScreenRect.width, self._ScreenRect.height, w, h)
         self.DrawTextXY(txt, x, self._ScreenRect.height-70, (224, 192, 128))
 
         txt = 'Help: ESC-break level; F10-exit'
@@ -453,7 +453,7 @@ class sokobanScene(g2dScene):
         self.DrawTextXY(txt, 5, self._ScreenRect.height-20, (224, 192, 128))
         
         self.RefreshScreen()
-        while pygame.event.wait().type != KEYDOWN:
+        while pygame.event.wait().type != pygame.KEYDOWN:
             pass
 
     def BacksidePage(self):
@@ -463,7 +463,7 @@ class sokobanScene(g2dScene):
         self._Background = pygame.Surface(self._ScreenRect.size)
         artefact = img.load_image(os.path.join(self._ImgDir, 'artefact.png'))
         x, y = img.calc_center_xy(self._ScreenRect.width, self._ScreenRect.height,
-                                artefact.get_width(), artefact.get_height())
+                                  artefact.get_width(), artefact.get_height())
         self.DrawImage(artefact, x, 50)    
 
         txt = 'GAME OVER...'
@@ -473,5 +473,5 @@ class sokobanScene(g2dScene):
         self.DrawTextXY(txt, x, self._ScreenRect.height-150, (224, 192, 128))
 
         self.RefreshScreen()
-        while pygame.event.wait().type != KEYDOWN:
+        while pygame.event.wait().type != pygame.KEYDOWN:
             pass

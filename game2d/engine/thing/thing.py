@@ -4,13 +4,11 @@
 Abstract thing class.
 """
 
-# --- Imports ---
-from game2d.engine import figure
+from .. import figure
 
-__version__ = (0, 0, 2, 1)
+__version__ = (0, 0, 3, 1)
 
 
-# --- Classes ---
 class g2dThing(figure.g2dFigure):
     """
     Abstract thing class.

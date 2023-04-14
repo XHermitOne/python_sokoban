@@ -1,8 +1,8 @@
 # !/usr/bin/env python
 #  -*- coding: utf-8 -*-
-'''
+"""
 Text and string functions.
-'''
+"""
 
 #--- Imports ---
 import log
@@ -11,11 +11,11 @@ import log
 PADDING='    '
 
 def StructToTxt(Struct_, Level_=0):
-    '''
+    """
     Convert dict-list struct to text.
     :param Struct_ : Dict-list struct.
     :param Level_: Cur level.
-    '''
+    """
     try:
         txt=''
         obj_type=type(Struct_)

@@ -1,8 +1,8 @@
 # !/usr/bin/env python
 #  -*- coding: utf-8 -*-
-'''
+"""
 Resource file functions.
-'''
+"""
 
 #--- Imports ---
 import cPickle
@@ -10,14 +10,13 @@ import cPickle
 import txt
 import log
 import file
-#--- Constants ---
-#--- Specifications ---
-#--- Functions ---
+
+
 def LoadResource(FileName_):
-    '''
+    """
     Load resource file.
     :param FileName_: Resource file name.
-    '''
+    """
     #Pickle?
     struct=LoadResourcePickle(FileName_)
     if struct is None:
@@ -31,10 +30,10 @@ def LoadResource(FileName_):
     
     
 def LoadResourcePickle(FileName_):
-    '''
+    """
     Load pickle resource file.
     :param FileName_: Resource file name.
-    '''
+    """
     if file.IsFile(FileName_):
         try:
             f=open(FileName_)
@@ -48,11 +47,12 @@ def LoadResourcePickle(FileName_):
         log.PrintLog('ERROR: File %s not found.'%(FileName_))
         return None
 
+
 def LoadResourceText(FileName_):
-    '''
+    """
     Load text resource file.
     :param FileName_: Resource file name.
-    '''
+    """
     if file.IsFile(FileName_):
         try:
             f=open(FileName_)
@@ -66,13 +66,14 @@ def LoadResourceText(FileName_):
         log.PrintLog('ERROR: File %s not found.'%(FileName_))
         return None
 
+
 def SaveResourcePickle(FileName_,Resource_):
-    '''
+    """
     Save pickle resource file.
     :param FileName_: Resource file name.
     @Resource_: Resource data.
     :return: True/False.
-    '''
+    """
     try:
         dir_name=file.DirName(FileName_)
         CreateInitFile(dir_name)
@@ -86,15 +87,16 @@ def SaveResourcePickle(FileName_,Resource_):
         log.PrintLog('ERROR: Save resource file %s in pickle format.'%(FileName_))
         return False
 
+
 def SaveResourceText(FileName_,Resource_):
-    '''
+    """
     Save text resource file.
     :param FileName_: Resource file name.
     @Resource_: Resource data.
     :return: True/False.
-    '''
+    """
     try:
-        dir_name=file.DirName(FileName_)
+        dir_name = file.DirName(FileName_)
         CreateInitFile(dir_name)
 
         f=open(FileName_,'w')

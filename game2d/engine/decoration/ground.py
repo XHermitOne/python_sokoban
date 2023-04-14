@@ -5,7 +5,6 @@
 Модуль класса почвы/земли.
 """
 
-# === Подключение библиотек ===
 import os
 import os.path
 import random
@@ -13,16 +12,15 @@ import random
 # Импортирование основных игровых модулей
 import pygame
 
-from game2d.engine import decor
-from game2d.engine import map2d
+from .. import decor
+from .. import map2d
 
-__version__ = (0, 0, 2, 1)
+__version__ = (0, 0, 3, 1)
 
 
 GROUND_IMG = None
 
 
-# --- Описания классов ---
 class sokobanGround(decor.g2dDecor):
     """
     Класс почвы.
